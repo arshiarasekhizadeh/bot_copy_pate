@@ -1,59 +1,117 @@
 # Telegram Copy-Paste Bot
 
-A simple and lightweight Telegram bot that automatically **copies messages** from one channel and **forwards/pastes** them into another channel.
+A lightweight automation bot that **monitors one Telegram channel** and
+automatically **copies/forwards messages** to another channel.
 
-This project demonstrates:
-- Telegram Bot API usage  
-- Automation with Python  
-- Channel-to-channel message forwarding  
+This project demonstrates: - Telegram Bot API integration\
+- Automation scripting in Python\
+- Real-time message monitoring\
+- Clean and minimal bot architecture
 
----
+------------------------------------------------------------------------
 
-## 🚀 Features
+## ⭐ Features
 
-- Copy messages from a source channel  
-- Automatically forward/paste them into a destination channel  
-- Supports text, media, and forwarded messages  
-- Works on private & public channels (permissions required)
+-   Copy messages from a source channel\
+-   Forward/paste messages into a destination channel\
+-   Supports **text**, **photos**, **videos**, **documents**, and
+    forwarded messages\
+-   Works for **private** and **public** channels (bot must be admin)\
+-   Environment variables for clean configuration\
+-   100% Python-based & easy to deploy
 
----
+------------------------------------------------------------------------
 
-## 🛠️ Tech Stack
+## 📦 Tech Stack
 
-- Python  
-- python-telegram-bot  
-- Telegram Bot API  
+-   **Python 3.8+**\
+-   **python-telegram-bot**\
+-   **dotenv**\
+-   **Telegram Bot API**
 
----
+------------------------------------------------------------------------
 
 ## 📁 Project Structure
 
-.
-├── main.py
-├── requirements.txt
-└── README.md
+    .
+    ├── main.py
+    ├── requirements.txt
+    ├── .env (not included in repo)
+    └── README.md
 
----
+------------------------------------------------------------------------
 
-## ⚙️ Setup & Usage
+## ⚙️ Installation
 
-### 1. Install dependencies:
-```bash
+### 1. Clone the repository
+
+``` bash
+git clone https://github.com/arshiarasekhizadeh/bot_copy_pate.git
+cd bot_copy_pate
+```
+
+### 2. Install dependencies
+
+``` bash
 pip install -r requirements.txt
-2. Add your Telegram bot token
+```
 
-Create a .env file (or edit config section):
-TOKEN=your_telegram_bot_token
-SOURCE_CHAT_ID=123456
-DESTINATION_CHAT_ID=654321
-3. Run the bot:
+------------------------------------------------------------------------
+
+## 🔧 Configuration
+
+Create a `.env` file in the root directory:
+
+    BOT_TOKEN=your_bot_token_here
+    SOURCE_CHAT_ID=-1001234567890
+    DESTINATION_CHAT_ID=-1009876543210
+
+------------------------------------------------------------------------
+
+## ▶️ Running the Bot
+
+``` bash
 python main.py
-📌 Notes
+```
 
-The bot must be an admin in both channels
+------------------------------------------------------------------------
 
-If copying from private channels, the bot must be a member
+## 🔍 How It Works (Architecture)
 
-For media forwarding, Telegram may apply restrictions
+    ┌──────────────────┐        ┌────────────────────────┐
+    │ Source Channel    │        │ Destination Channel    │
+    └───────▲──────────┘        └──────────▲────────────┘
+            │                               │
+            │ new message event             │ forwarded message
+            │                               │
+    ┌───────┴────────────────────────────────────────────┐
+    │        Telegram Copy-Paste Bot (main.py)           │
+    └────────────────────────────────────────────────────┘
 
-This bot is intended for automation/testing purposes
+------------------------------------------------------------------------
+
+## 🛡️ Requirements & Permissions
+
+-   Bot must be **admin** in both channels\
+-   Telegram privacy limits still apply
+
+------------------------------------------------------------------------
+
+## 📈 Possible Improvements
+
+-   Logging\
+-   Docker support\
+-   Multi-channel forwarding\
+-   Message filters
+
+------------------------------------------------------------------------
+
+## 📄 License
+
+MIT License
+
+------------------------------------------------------------------------
+
+## 📬 Contact
+
+Email: rasekhizadearshia@gmail.com
